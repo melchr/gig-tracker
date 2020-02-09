@@ -1,2 +1,5 @@
 class User < ActiveRecord::Base
-end
+    has_secure_password
+    has_many :gigs
+    validates :name, :email, :password_digest, presence: true
+  end
