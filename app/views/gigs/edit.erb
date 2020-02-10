@@ -3,7 +3,7 @@
 <form action="/gigs/<%= @gig.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
 
-  <label for="bands">Bands</label>
+  <label for="bands">Artists</label>
   <input type="text" name="gig[bands]" id="bands" value="<%= @gig.bands %>"/>
 
   <label for="location">Location (Venue, City)</label>
