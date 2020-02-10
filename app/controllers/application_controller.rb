@@ -56,14 +56,95 @@ class ApplicationController < Sinatra::Base
     redirect "/login"
   end
 
-  get '/gigs' do
-    erb :'gigs/gigs'
-  end
-
   get '/home' do
     @user = User.find(session[:user_id])
     erb :'users/home'
   end
+
+  get '/gigs' do
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
+      @gigs = Gig.all
+      #if @user != nil
+      #  @gigs = Gig.where(:user_id => @user.id)
+      erb :'gigs/index'
+    else
+      redirect "/login"
+    end
+  end
+
+  post '/gigs' do
+    user = Helpers.current_user(session)
+
+    gig = user.gigs.create(params)
+    if gig.save
+      puts "Gig has been saved."
+    else
+      puts "Please try again."
+    end
+
+    redirect "/gigs"
+  end
+
+get '/gigs/new' do
+  if Helpers.is_logged_in?(session)
+    erb :'gigs/new'
+  else
+    redirect "/login"
+  end
+end
+
+get '/gigs/:id' do
+  if Helpers.is_logged_in?(session)
+    @user = Helpers.current_user(session)
+    @gig = Gig.find_by_id(params["id"])
+    if @gig.id == @gig.user_id
+      erb :'gigs/show'
+    else
+      redirect "/login"
+    end
+  else
+    redirect "/login"
+  end
+end
+
+get '/gigs/:id/edit' do
+  if Helpers.is_logged_in?(session)
+    @user = Helpers.current_user(session)
+    @gig = Gig.find_by_id(params[:id]) #["id"]
+    if @user.id == @gig.user_id
+      erb :'gigs/edit'
+    else
+      redirect "/login"
+    end
+  else
+    redirect "/login"
+  end
+end
+
+patch '/gigs/:id' do
+  @user = Helpers.current_user(session)
+  @gig = Gig.find_by_id(params["id"])
+
+  if @user.id == @gig.user_id
+    @gig.update(params["gig"])
+    redirect "/gigs/#{@gig.id}"
+  else
+    redirect "/login"
+  end
+end
+
+delete '/gigs/:id' do
+  @user = Helpers.current_user(session)
+  @gig = Gig.find_by_id(params["id"])
+
+  if @user.id == @gig.user_id
+    @gig.destroy
+    redirect "/gigs"
+  else
+    redirect "/login"
+  end
+end
 
   get '/logout' do
     session.clear
