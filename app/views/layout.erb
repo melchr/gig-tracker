@@ -15,8 +15,8 @@
   </head>
   <body>
     <div class="wrapper">
-        <% if Helpers.current_user(session) %>
-            Hello, <%= Helpers.current_user(session).name %> |
+        <% if current_user %>
+            Hello, <%= current_user.name %> |
             <a href="/home">Home</a> |
             <a href="/gigs">Gigs</a> |
             <a href="/logout">Logout</a>

@@ -3,7 +3,7 @@
 <ul>
   <% @gigs.each do |gig| %>
   <li>
-    <b><%= gig.bands %></b> - <%= gig.location %> at <%= gig.time %> on <%= gig.date %> <a href="/gigs/:id/edit">Edit</a>
+    <b><%= gig.bands %></b> - <%= gig.location %> | <%= gig.time %> on <%= gig.date %> <a href="/gigs/:id/edit">Edit</a>
   </li>
   <% end %>
 </ul>
