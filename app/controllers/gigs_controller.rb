@@ -1,6 +1,7 @@
 class GigController < ApplicationController
     get '/gigs' do
         if logged_in?
+          @user = current_user
           @gigs = Gig.all
           erb :'/gigs/index'
         else
@@ -11,7 +12,7 @@ class GigController < ApplicationController
     get '/gigs/new' do
         if logged_in?
           @gigs = Gig.all
-          erb :'gigs/new'
+          erb :'/gigs/new'
         else
           redirect to '/login'
         end
@@ -23,9 +24,9 @@ class GigController < ApplicationController
        gig = Gig.new(params)
        gig.user = current_user
         if gig.save
-          puts "saved"
+          redirect "/gigs/#{gig.id}"
         else
-          redirect '/gigs'
+          redirect '/gigs/new'
         end
     end
     
@@ -33,7 +34,7 @@ class GigController < ApplicationController
         if logged_in?
           @gig = Gig.find_by_id(params[:id])
         if current_user.id == @gig.user_id
-          erb :"gigs/show"
+          erb :"/gigs/show"
         else
           redirect '/login'
         end
@@ -41,13 +42,11 @@ class GigController < ApplicationController
     end
     
     get '/gigs/:id/edit' do
-        if logged_in?
-            @gig = Gig.find_by_id(params[:id])
-          if current_user.id == @gig.user_id
-            erb :"gigs/edit"
+        @gig = Gig.find_by_id(params[:id])
+        if logged_in? && @gig.user_id == current_user.id
+            erb :'/gigs/edit'
         else
           redirect to '/login'
           end
-        end
         end
 end
