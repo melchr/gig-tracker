@@ -1,15 +1,15 @@
 
-<h4><%= @user.name %></h4><br><br>
-<h4><%= @user.email %></h4><br><br>
+<h4><%= current_user.name %></h4><br><br>
+<h4><%= current_user.email %></h4><br><br>
 
 <ol>
-  <% @user.gig.each do |gig| %>
+  <% current_user.gigs.each do |gigs| %>
   <li>
-    <a href="/gigs/<%= gig.id %>">
-      <p><%= gig.name %></p>
+    <a href="/gigs/<%= gigs.id %>">
+      <p><%= gigs.name %></p>
       </a>
-      <p>Date: <%= gig.date %> </p>
-      <p>Added by: <%= gig.user.name %> </p>
+      <p>Date: <%= gigs.date %> </p>
+      <p>Added by: <%= current_user.name %> </p>
   </li>
   <% end %>
 </ol>
