@@ -1,20 +1,20 @@
-<h1>Edit <%= @gig.name %></h1>
+<h1>Edit the <%= @gig.bands %> event:</h1>
 
-<form action="/gigs/<%= @gig.id %>" method="post">
+<form method="post" action="/gigs/<%= @gig.id %>">
   <input type="hidden" name="_method" value="patch">
 
   <label for="bands">Artists</label>
-  <input type="text" name="gig[bands]" id="bands" value="<%= @gig.bands %>"/>
-
+  <input type="textarea" name="gig[bands]" id="bands" value="<%= @gig.bands %>"/>
+<br>
   <label for="location">Location (Venue, City)</label>
-  <input type="text" name="gig[location]" id="location" value="<%= @gig.location %>"/>
-
+  <input type="textarea" name="gig[location]" id="location" value="<%= @gig.location %>"/>
+<br>
   <label for="date">Date</label>
   <input type="date" name="gig[date]" id="date" value="<%= @gig.date %>"/>
-
+<br>
   <label for="time">Time</label>
   <input type="text" name="gig[time]" id="time" value="<%= @gig.time %>"/>
-
+<br>
   <input type="submit" value="Submit">
 </form>
 
