@@ -1,0 +1,24 @@
+<h1>Edit <%= @gig.name %></h1>
+
+<form action="/gigs/<%= @gig.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <label for="bands">Bands</label>
+  <input type="text" name="gig[bands]" id="bands" value="<%= @gig.bands %>"/>
+
+  <label for="location">Location (Venue, City)</label>
+  <input type="text" name="gig[location]" id="location" value="<%= @gig.location %>"/>
+
+  <label for="date">Date</label>
+  <input type="date" name="gig[date]" id="date" value="<%= @gig.date %>"/>
+
+  <label for="time">Time</label>
+  <input type="text" name="gig[time]" id="time" value="<%= @gig.time %>"/>
+
+  <input type="submit" value="Submit">
+</form>
+
+<form action="/gigs/<%= @gig.id %>" method="post">
+  <input type="hidden" name="_method" value="delete" />
+  <input type="submit" value="Delete" />
+</form>

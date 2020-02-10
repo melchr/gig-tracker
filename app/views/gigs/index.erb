@@ -1,0 +1,12 @@
+<h1>Gigs</h1>
+
+<ul>
+  <% @gigs.each do |gig| %>
+  <li>
+    <b><%= gig.bands %></b> - <%= gig.location %> at <%= gig.time %> on <%= gig.date %> <a href="/gigs/:id/edit">Edit</a>
+  </li>
+  <% end %>
+</ul>
+<br>
+<br>
+<p><a href="/gigs/new">Create a new gig</a></p>
