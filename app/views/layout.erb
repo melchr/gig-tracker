@@ -15,7 +15,15 @@
   </head>
   <body>
     <div class="wrapper">
-
+        <% if Helpers.current_user(session) %>
+            Hello, <%= Helpers.current_user(session).name %> |
+            <a href="/home">Home</a> |
+            <a href="/gigs">Gigs</a> |
+            <a href="/logout">Logout</a>
+          <% else %>
+            <a href="/login">Login</a> or <a href="/signup">Sign Up</a>
+          <% end %>
+<br>
         <%= yield %>
 
       <footer class="branding">
