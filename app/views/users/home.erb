@@ -1,3 +1,16 @@
 <br>
-"Welcome, <%= current_user.name %>!"
+<h3>Here is a list of gigs you've added:</h3>
 <br>
+<br>
+<% current_user.gigs.each do |gig| %>
+    <b><%= gig.bands %></b> - <%= gig.location %> | <%= gig.time %> on <%= gig.date.strftime("%m/%d/%Y") %>
+        <% if gig.user && session[:user_id] == gig.user.id %><a href="/gigs/<%=gig.id%>/edit">Edit this gig</a>
+    <% end %>
+    <% end %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href="/gigs/new">Create a new Gig</a>
