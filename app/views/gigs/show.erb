@@ -3,8 +3,8 @@
 
   <% @user.gigs.each do |gigs| %>
     <a href="/gigs/<%= gigs.id %>">
-      <p><%= gigs.bands %></a> <!--<a href="/gigs/<%=gig.id%>/edit">(edit this gig)</a>-->
-      <br>Location: <%= gigs.location%> </p>
+      <p><%= gigs.bands %></a> 
+      <br>Location: <%= gigs.location%>
       <br>Date: <%= gigs.date.strftime("%m/%d/%Y") %>
-      <br>Time: <%= gigs.time %>
+      <br>Time: <%= gigs.time %></p>
   <% end %>
