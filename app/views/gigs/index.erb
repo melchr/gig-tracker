@@ -1,12 +1,12 @@
 <h1>Gigs</h1>
 
-<ul>
   <% @gigs.each do |gig| %>
-  <li>
-    <b><%= gig.bands %></b> - <%= gig.location %> | <%= gig.time %> on <%= gig.date %> <a href="/gigs/<%=gig.id%>/edit">Edit</a>
-  </li>
+    <b><%= gig.bands %></b> - <%= gig.location %> | <%= gig.time %> on <%= gig.date.strftime("%m/%d/%Y") %>
+    <!-- limits editing to only the user that added the gig-->
+    <% if gig.user && session[:user_id] == gig.user.id %><a href="/gigs/<%=gig.id%>/edit">Edit this gig</a>
+    <% end %>
+    <br>
   <% end %>
-</ul>
 <br>
 <br>
 <p><a href="/gigs/new">Create a new gig</a></p>
