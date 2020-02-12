@@ -46,7 +46,14 @@ class GigController < ApplicationController
         if logged_in? && @gig.user_id == current_user.id
             erb :'/gigs/edit'
         else
-          redirect to '/login'
+          redirect to "/gigs/#{gig.id}"
           end
         end
+
+    patch '/gigs/:id' do
+        gig = Gig.find_by_id(params[:id])
+        gig.update(bands: params[:bands], location: params[:location], date: params[:date], time: params[:time])
+        redirect "/gigs/#{gig.id}"
+    end
+
 end
