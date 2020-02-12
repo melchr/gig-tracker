@@ -1,15 +1,10 @@
 <br>
 <h4>Hey <%= @user.name %>, here are the gigs you added:</h4><br>
 
-<ol>
   <% @user.gigs.each do |gigs| %>
-  <li>
     <a href="/gigs/<%= gigs.id %>">
-      <p><%= gigs.bands %></a>
-      <br>Date: <%= gigs.date %>
-      <br>Time: <%= gigs.time%>
+      <p><%= gigs.bands %></a> <!--<a href="/gigs/<%=gig.id%>/edit">(edit this gig)</a>-->
       <br>Location: <%= gigs.location%> </p>
-
-  </li>
+      <br>Date: <%= gigs.date.strftime("%m/%d/%Y") %>
+      <br>Time: <%= gigs.time %>
   <% end %>
-</ol>
