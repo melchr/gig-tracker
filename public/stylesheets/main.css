@@ -13,12 +13,18 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    /*background-color: rgb(111, 129, 69);*/
-    background-color: #ffcbc9;
-    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-2.png");
+    background-color: #000;
+    background-image: url("https://cdn.pixabay.com/photo/2019/12/04/05/17/band-4671748_1280.jpg");
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
   }
 
   .wrapper {
@@ -52,6 +58,18 @@
 
   p {
     margin-bottom: 18px;
+  }
+
+  a {
+    color: #2384C4;
+  }
+
+  a:visited {
+    color: #688494;
+  }
+
+  a:hover {
+    color: #000;
   }
 
   .main {
