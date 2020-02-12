@@ -55,5 +55,10 @@ class GigController < ApplicationController
         gig.update(bands: params[:bands], location: params[:location], date: params[:date], time: params[:time])
         redirect "/gigs/#{gig.id}"
     end
-
+    
+    delete '/gigs/:id' do
+        @gig = Gig.find_by_id(params[:id])
+        @gig.delete
+        redirect to '/gigs'
+    end
 end
