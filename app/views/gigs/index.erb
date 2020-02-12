@@ -1,4 +1,4 @@
-<h1>Gigs</h1>
+<center><h1>Gigs</h1></center>
 
   <% @gigs.each do |gig| %>
     <%= gig.id %>. <b><%= gig.bands %></b> - <%= gig.location %> | <%= gig.time %> on <%= gig.date.strftime("%m/%d/%Y") %>
