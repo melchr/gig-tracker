@@ -1,5 +1,5 @@
 <center><h1>Gigs</h1></center>
-
+<br>
   <% @gigs.each do |gig| %>
     <b><%= gig.bands %></b> - <%= gig.location %> | <%= gig.time %> on <%= gig.date.strftime("%m/%d/%Y") %>
     <!-- limits editing to only the user that added the gig-->
