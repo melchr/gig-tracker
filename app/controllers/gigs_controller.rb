@@ -50,16 +50,17 @@ class GigController < ApplicationController
           end
         end
 
-    patch '/gigs/:id' do
-        gig = Gig.find_by_id(params[:id])
-        gig.bands = params[:bands]
-        gig.location = params[:location]
-        gig.date = params[:date]
-        gig.time = params[:time]
-        gig.save
-        #gig.update(bands: params[:bands], location: params[:location], date: params[:date], time: params[:time])
-        redirect to "/gigs/#{gig.id}"
-    end
+        patch '/gigs/:id' do
+            @gig = Gig.find_by_id(params[:id])
+            #@gig.bands = params[:bands]
+            #@gig.location = params[:location]
+            #@gig.date = params[:date]
+            #@gig.time = params[:time]
+            #@gig.save
+            #@gig.update(:bands => params[:bands], :location => params[:location], :date => params[:date], :time => params[:time])
+            @gig.update(params[:gig])
+            redirect to "/gigs/#{@gig.id}"
+        end
     
     delete '/gigs/:id' do
         @gig = Gig.find_by_id(params[:id])
