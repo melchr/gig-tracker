@@ -4,7 +4,7 @@
   <% @user.gigs.each do |gigs| %>
     <a href="/gigs/<%= gigs.id %>">
       <p><%= gigs.bands %></a> 
-      <br>Location: <%= gigs.location%>
+      <br>Venue: <%= gigs.location%>
       <br>Time: <%= gigs.time %>
       <br>Date: <%= gigs.date.strftime("%m/%d/%Y") %></p>
   <% end %>

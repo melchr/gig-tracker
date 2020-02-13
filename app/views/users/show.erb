@@ -6,7 +6,7 @@
   <% current_user.gigs.each do |gigs| %>
   <li>
     <a href="/gigs/<%= gigs.id %>">
-      <p><%= gigs.name %></p>
+      <p><%= gigs.bands %></p>
       </a>
       <p>Date: <%= gigs.date %> </p>
       <p>Added by: <%= current_user.name %> </p>
