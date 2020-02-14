@@ -1,6 +1,10 @@
 <br>
-<h3>Here is a list of gigs you've added:</h3>
 <br>
+
+<% if current_user.gigs.empty? %>
+  You have not added any gigs. Click <a href="/gigs/new">here</a> to add one.
+<% else %>
+<h3>Here is the list of gigs you added:</h3>
 <br>
 <% current_user.gigs.each do |gig| %>
     <b><%= gig.bands %></b> - <%= gig.location %> | <%= gig.time %> on <%= gig.date.strftime("%m/%d/%Y") %>
@@ -9,10 +13,4 @@
     <br>
     <br>
     <% end %>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<a href="/gigs/new">Create a new Gig</a>
+  <% end %>

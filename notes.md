@@ -7,9 +7,10 @@ users who did not create a show cannot edit that show
 users need to logout
 
 molly@molly.com username: molly1 pw:molly
-
 mel@mel.com username: melchr pw: melissa
+melc@m.com username: melc pw: melc
 emolover@gmail.com username: emogirl pw:emo
+othermel othermel@gmail.com othermel
 
 
 

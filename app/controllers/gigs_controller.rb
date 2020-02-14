@@ -59,7 +59,7 @@ class GigController < ApplicationController
             #@gig.save
             #@gig.update(:bands => params[:bands], :location => params[:location], :date => params[:date], :time => params[:time])
             @gig.update(params[:gig])
-            redirect to "/gigs/#{@gig.id}"
+            erb :'/users/home'
         end
     
     delete '/gigs/:id' do

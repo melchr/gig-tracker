@@ -11,9 +11,9 @@ class UsersController < ApplicationController
         user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password])
           session[:user_id] = user.id
-          redirect to "/gigs"
+          erb :'users/home'
         else
-          "Incorrect login."
+          #"Incorrect login."
           redirect to "/login"
         end
       end
@@ -27,13 +27,11 @@ class UsersController < ApplicationController
       end
     
       post '/signup' do
-        if params.values.any?{|v| v.nil? || v.length == 0}
-          redirect to "/signup"
-        elsif User.find_by(name: params[:name])
-          "Username already taken."
+        if User.find_by(name: params[:name])
+          #"Username already taken."
           redirect to "/signup"
         elsif User.find_by(email: params[:email])
-          "Email already taken."
+          #"Email already taken."
           redirect to "/signup"
         else
           user = User.create(name: params[:name], password: params[:password], email: params[:email])
