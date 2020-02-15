@@ -12,7 +12,7 @@ Gig Tracker is a simple CRUD, MVC Sinatra app for users located in NYC that allo
 
 
 ## Demo Link
-A demo video of the application can be found [here]( ).
+A demo video of the application can be found [here](https://youtu.be/UBU2f6O5tqM).
 
 ## Installation
 
