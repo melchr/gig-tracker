@@ -18,7 +18,5 @@ TODO:
 organize gigs page > sort alphabetically or by date or by user?
 more css
 add ability to see which user added what
-Change name to gig viewer
-figure out the difference between 
-    http://127.0.0.1:9393/gigs/6 and http://127.0.0.1:9393/home
 add a search feature???
+!!!make it so multiple of the same event cannot be added!!!
