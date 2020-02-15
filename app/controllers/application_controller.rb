@@ -30,10 +30,6 @@ class ApplicationController < Sinatra::Base
     @user ||= User.find_by_id(session[:user_id])
   end
 
-  def is_authorized?(id)
-    current_user.id == id.to_i
-  end
-
  # def not_logged_in
   #  if !logged_in?
  #     "You must be logged in to view that page."
