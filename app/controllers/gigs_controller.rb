@@ -24,7 +24,7 @@ class GigController < ApplicationController
        gig = Gig.new(params)
        gig.user = current_user
         if gig.save
-          redirect "/gigs/#{gig.id}"
+          erb :"/users/home"
         else
           redirect '/gigs/new'
         end
