@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     get '/login' do
         if logged_in?
-          redirect "/gigs"
+          erb :'users/home'
         else
         erb :'users/login'
         end
