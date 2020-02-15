@@ -10,12 +10,13 @@
     <b><%= gig.bands %></b> - <%= gig.location %> | <%= gig.time %> on <%= gig.date.strftime("%m/%d/%Y") %>
         <% if gig.user && session[:user_id] == gig.user.id %>
           <a href="/gigs/<%=gig.id%>/edit">
-            <button class="button1">
-              <span class="button--inner">Edit or Delete</span>
-            </button>
+            <button>Edit or Delete</button>
           </a>
     <% end %>
     <br>
     <br>
     <% end %>
   <% end %>
+   <a href="/gigs/new">
+      <button>Create New Gig</button>
+    </a>
