@@ -9,7 +9,7 @@ gem 'sqlite3', '~> 1.3.6'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
-gem 'bcrypt'
+gem 'bcrypt' #has_secure_password
 gem 'tux'
 
 group :test do
