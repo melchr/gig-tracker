@@ -7,7 +7,7 @@
 <h3>Here is a list of gigs you added:</h3>
 <br>
 <% current_user.gigs.each do |gig| %>
-    <b><%= gig.bands %></b> - <%= gig.location %> | <%= gig.time %> on <%= gig.date.strftime("%m/%d/%Y") %>
+    <a href="/gigs/<%=gig.id%>"><b><%= gig.bands %></b></a> - <%= gig.location %> | <%= gig.time %> on <%= gig.date.strftime("%m/%d/%Y") %>
         <% if gig.user && session[:user_id] == gig.user.id %>
           <a href="/gigs/<%=gig.id%>/edit">
             <button>Edit or Delete</button>
