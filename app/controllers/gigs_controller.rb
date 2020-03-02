@@ -1,25 +1,29 @@
 class GigController < ApplicationController 
   get '/gigs' do 
-      if logged_in? 
-        @user = current_user 
-        @gigs = Gig.all 
+    if logged_in? 
+      @user = current_user 
+      @gigs = Gig.all 
         erb :'/gigs/index' 
-      else
-        redirect to '/login' 
-      end
+    else
+      redirect to '/login' 
+    end
   end
   
   get '/gigs/new' do 
-      if logged_in? 
-        erb :'/gigs/new' 
-      else
-        redirect to '/login' 
-      end
+    if logged_in? 
+      erb :'/gigs/new' 
+    else
+      redirect to '/login' 
+    end
   end
+
+  #get '/home' do
+  #  erb :'/home'
+  #end
   
   post '/gigs' do 
-     @gig = Gig.new(params)
-     @gig.user = current_user
+    @gig = Gig.new(params)
+    @gig.user = current_user
       if @gig.save 
         redirect to "/gigs/#{ @gig.id }" 
       else
@@ -30,30 +34,30 @@ class GigController < ApplicationController
   get '/gigs/:id' do 
     if logged_in?
       @gig = Gig.find_by_id(params[:id]) 
-      erb :"/gigs/show"
+        erb :"/gigs/show"
     else
       redirect '/login'
     end
   end
   
   get '/gigs/:id/edit' do 
-      @gig = Gig.find_by_id(params[:id]) 
+    @gig = Gig.find_by_id(params[:id]) 
       if logged_in? && @gig.user_id == current_user.id 
-          erb :'/gigs/edit'
+        erb :'/gigs/edit'
       else
         redirect to "/gigs/#{@gig.id}" 
-        end
       end
+  end
 
-      patch '/gigs/:id' do
-          @gig = Gig.find_by_id(params[:id])
-          @gig.update(params[:gig])
-          erb :'/users/home'
-      end
+  patch '/gigs/:id' do
+    @gig = Gig.find_by_id(params[:id])
+    @gig.update(params[:gig])
+      redirect to '/home'
+  end
   
   delete '/gigs/:id' do
-      @gig = Gig.find_by_id(params[:id])
-      @gig.delete
+    @gig = Gig.find_by_id(params[:id])
+    @gig.delete
       redirect to '/gigs' 
   end
 end
