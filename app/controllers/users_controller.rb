@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   
   get '/signup' do 
     if logged_in?
-      redirect "/gigs"
+      redirect to "/gigs"
     else
       erb :'users/signup'
     end
@@ -38,6 +38,10 @@ class UsersController < ApplicationController
   end
   
   get '/home' do
+    if logged_in?
     erb :'users/home'
+    else
+    erb :'users/login'
+    end
   end
 end
