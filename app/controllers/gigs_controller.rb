@@ -16,10 +16,6 @@ class GigController < ApplicationController
       redirect to '/login' 
     end
   end
-
-  #get '/home' do
-  #  erb :'/home'
-  #end
   
   post '/gigs' do 
     @gig = Gig.new(params)
