@@ -27,6 +27,7 @@ class GigController < ApplicationController
   end
 
   get '/gigs/:id' do 
+    @user = current_user
     if logged_in?
       @gig = Gig.find_by_id(params[:id]) 
         erb :"/gigs/show"
