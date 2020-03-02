@@ -41,7 +41,7 @@ class GigController < ApplicationController
       if logged_in? && @gig.user_id == current_user.id 
         erb :'/gigs/edit'
       else
-        redirect to "/gigs/#{@gig.id}" 
+        redirect to "/login" 
       end
   end
 
