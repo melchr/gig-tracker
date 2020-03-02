@@ -1,7 +1,6 @@
 class GigController < ApplicationController 
   get '/gigs' do 
     if logged_in? 
-      @user = current_user 
       @gigs = Gig.all 
         erb :'/gigs/index' 
     else
